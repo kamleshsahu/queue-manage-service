@@ -1,0 +1,54 @@
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Create three equal columns that floats next to each other */
+    .column {
+        float: left;
+        width: 33.33%;
+        padding: 10px;
+        height: 300px; /* Should be removed. Only for demonstration */
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
+<div class="row" class="container">
+    <div class="column" style="background-color:#aaa;">
+        <h2>Hold</h2>
+        <li>
+            kamlesh
+        </li>
+        <li>
+            bhai
+        </li>
+        <li>
+            data
+        </li>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>In Queue</h2>
+        <ul id="inQueue">
+
+        </ul>
+    </div>
+    <div class="column" id="processed" style="background-color:#ccc;">
+        <h2>Processed</h2>
+        <li>
+            kamlesh
+        </li>
+        <li>
+            bhai
+        </li>
+        <li>
+            data
+        </li>
+    </div>
+</div>
