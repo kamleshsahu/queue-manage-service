@@ -21,7 +21,7 @@ function reloadQueue(){
             messageElement.appendChild(avatarElement);
 
             var usernameElement = document.createElement('span');
-            var usernameText = document.createTextNode("->tokenId:"+message[i].tokenId);
+            var usernameText = document.createTextNode("-> "+message[i].rank);
             usernameElement.appendChild(usernameText);
             messageElement.appendChild(usernameElement);
 

@@ -2,6 +2,7 @@ package com.javatechie.spring.ws.api.repository;
 
 import com.javatechie.spring.ws.api.model.Man;
 
+import java.util.List;
 import java.util.Queue;
 
 public interface QueueRepo {
@@ -12,5 +13,5 @@ public interface QueueRepo {
 
     Man processFirst();
 
-    Queue<Man> getQueue();
+    List<Man> getQueue();
 }

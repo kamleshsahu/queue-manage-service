@@ -10,12 +10,13 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Queue;
+import java.util.List;
 
-
+@CrossOrigin(origins = "*")
 @RestController
 @Controller
 public class QueueController {
@@ -33,6 +34,13 @@ public class QueueController {
 		return queueManager.addToQueue(man);
 	}
 
+//	@MessageMapping("/man.enqueue")
+//	@SendTo("/topic/inqueue")
+//	public Man enqueue(@Payload Man man, SimpMessageHeaderAccessor headerAccessor) {
+//		headerAccessor.getSessionAttributes().put("username", man.getId());
+//		return queueManager.addToQueue(man);
+//	}
+
 	@MessageMapping("/man.dequeue")
 	@SendTo("/topic/cancelled")
 	public Man deque(@Payload Man man, SimpMessageHeaderAccessor headerAccessor) {
@@ -47,8 +55,8 @@ public class QueueController {
 	}
 
 	@GetMapping("/queue")
-	public ResponseDTO<Queue<Man>> getQueue(){
-		ResponseDTO<Queue<Man>> response = new ResponseDTO<>(HttpStatus.OK,queueManager.getQueue());
+	public ResponseDTO<List<Man>> getQueue(){
+		ResponseDTO<List<Man>> response = new ResponseDTO<>(HttpStatus.OK,queueManager.getQueue());
 
 		return response;
 	}

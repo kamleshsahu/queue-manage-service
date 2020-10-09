@@ -32,6 +32,8 @@ function connect(event) {
         stompClient = Stomp.over(socket);
 
         stompClient.connect({}, onConnected, onError);
+
+
     }
     //event.preventDefault();
 }
@@ -39,6 +41,7 @@ function connect(event) {
 
 function onConnected() {
     // Subscribe to the Public Topic
+    reloadQueue();
     stompClient.subscribe('/topic/inqueue', onMessageReceived_inqueue);
     stompClient.subscribe('/topic/cancelled', onMessageReceived_cancelled);
     stompClient.subscribe('/topic/processed', onMessageReceived_processed);

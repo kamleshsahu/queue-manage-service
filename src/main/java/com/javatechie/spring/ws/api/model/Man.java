@@ -9,13 +9,16 @@ import java.util.Objects;
 
 @Getter
 @Setter
-@Builder
 public class Man {
 
     String id;
     String name;
-    int tokenId;
+  //  int tokenId;
+    int rank;
     Status status;
+
+    public Man() {
+    }
 
     @Override
     public boolean equals(Object o) {

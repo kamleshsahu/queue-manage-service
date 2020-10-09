@@ -1,19 +1,20 @@
 package com.javatechie.spring.ws.api.service;
 
 import com.javatechie.spring.ws.api.model.Man;
-import com.javatechie.spring.ws.api.repository.QueueRepoImpl;
+import com.javatechie.spring.ws.api.repository.QueueRepoImplRedis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Queue;
 
 @Service
 public class QueueManager {
 
-    QueueRepoImpl queueRepo;
+    QueueRepoImplRedis queueRepo;
 
     @Autowired
-    public QueueManager(QueueRepoImpl queueRepo) {
+    public QueueManager(QueueRepoImplRedis queueRepo) {
        this.queueRepo= queueRepo;
     }
 
@@ -29,7 +30,7 @@ public class QueueManager {
         return queueRepo.processFirst();
     }
 
-    public Queue<Man> getQueue(){
+    public List<Man> getQueue(){
         return queueRepo.getQueue();
     }
 
