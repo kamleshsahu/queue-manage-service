@@ -14,7 +14,11 @@ public class RedisConfig {
 	// Setting up the jedis connection factory.
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
-		return new JedisConnectionFactory();
+		JedisConnectionFactory jedisConnectionFactory = new JedisConnectionFactory();
+		jedisConnectionFactory.setHostName("redis-11341.c9.us-east-1-2.ec2.cloud.redislabs.com");
+		jedisConnectionFactory.setPort(11341);
+		jedisConnectionFactory.setPassword("TBtfevtswaVhou3bUUFU97slDAQC2Z3U");
+		return jedisConnectionFactory;
 	}
 	 
 	// Setting up the redis template object.
