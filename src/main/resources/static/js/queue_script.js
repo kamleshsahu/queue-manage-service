@@ -11,8 +11,8 @@ function reloadQueue(){
     var slashes = protocol.concat("//");
     var host = slashes.concat(window.location.host);
     var url = host+'/queue';
-    //var temp = "https://queue-manangement-service.herokuapp.com/queue";
-   // url = temp;
+    var temp = "https://queue-manangement-service.herokuapp.com/queue";
+    url = temp;
     console.log(url)
 
     $.getJSON( url, function(payload) {
