@@ -7,7 +7,15 @@ fetch("./queues.html")
     });
 
 function reloadQueue(){
-    $.getJSON('http://localhost:8080/queue', function(payload) {
+    var protocol = location.protocol;
+    var slashes = protocol.concat("//");
+    var host = slashes.concat(window.location.host);
+    var url = host+'/queue';
+    //var temp = "https://queue-manangement-service.herokuapp.com/queue";
+   // url = temp;
+    console.log(url)
+
+    $.getJSON( url, function(payload) {
         console.log(payload);
         var message = payload.data;
         $("#inQueue").empty();
